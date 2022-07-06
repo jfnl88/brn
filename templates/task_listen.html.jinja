@@ -1,0 +1,19 @@
+
+{% extends "task_base_layout.html.jinja" %}
+
+{% set task_script = 'listen' %}
+
+{% block task_content %}
+    <div id="task">
+        <div id="prompt">
+            Press <b>Play</b> to listen to the name of a city,
+            and hear the means of transport you would use to get there.
+            When you are done, press <b>Next</b> to continue.
+        </div>
+        <div id="play-btn-wrapper">
+            <button type="button" class="play-btn">
+                Play <img src="/expert/static/images/play.svg">
+            </button>
+        </div>
+    </div>
+{% endblock %}

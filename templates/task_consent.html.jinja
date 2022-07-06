@@ -1,0 +1,51 @@
+
+{% extends "task_base_consent.html.jinja" %}
+
+{% block consent_form %}
+
+    {#
+    Enter consent form content below. The included stylesheet contains
+    a class "field" for header fields, and class "qanda" for questions
+    and answers.
+    #}
+
+    <div id="header">
+        <h1>Consent for Participation</h1>
+        <p>
+            University of North Carolina at Chapel Hill<br>
+            Consent to Participate in a Research Study<br>
+            Adult Participants<br>
+        </p>
+
+        <p>
+            <span class="field">Consent Form Version Date:</span>
+            6/22/2020<br>
+            <span class="field">IRB Study #</span>XX-XXXX<br>
+            <span class="field">Title of Study:</span>
+            My title<br>
+            <span class="field">Principal Investigator:</span>
+            Jane Smith<br>
+            ...
+        </p>
+    </div>
+    <div id="summary">
+        <h2>Experiment summary</h2>
+        The purpose of this study is ...
+    </div>
+    <div class="qanda">
+        <h2>
+            What are some general things you should know about
+            research studies?
+        </h2>
+        You are being asked to take part in a research study. ...
+    </div>
+    <div class="qanda">
+        <h2>What is the purpose of this study?</h2>
+        The purpose of this research study is ...
+    </div>
+    <div id="agreement">
+        <h2>Participant’s Agreement:</h2>
+        By selecting, &ldquo;I agree,&rdquo; I have read the information provided and
+        I voluntarily agree to participate in this research study.
+    </div>
+{% endblock %}

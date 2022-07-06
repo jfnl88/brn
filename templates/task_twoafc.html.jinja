@@ -1,0 +1,47 @@
+
+{% extends "task_base_layout.html.jinja" %}
+
+{% set task_script = 'twoafc' %}
+
+{% block task_content %}
+    <div id="task">
+        <div id="prompt">
+            Press <b>Play</b> to hear the name
+            of a city. Then, click a picture to select the
+            means of transport you would
+            take to reach that city.
+            {% if fback %}
+                Once you are certain about
+                your selection, press <b>Check answer</b> to see if
+                you are right.
+            {% endif %}
+            When you are done, press <b>Next</b> to continue.
+        </div>
+        <div id="play-btn-wrapper">
+            <button type="button" id="play-btn" class="play-btn">
+                Play <img src="/expert/static/images/play.svg">
+            </button>
+        </div>
+        <div id="images-wrapper">
+            <div class="transport-img">
+                <img id="transport-img1" src="/expert/brn/img/train.jpg">
+                Newtonia
+            </div>
+            <div class="transport-img">
+                <img id="transport-img2" src="/expert/brn/img/boat.jpg">
+                Olden Isle
+            </div>
+        </div>
+        <div id="feedback-btn-wrapper">
+            <button type="button" id="feedback-btn">
+                Check answer
+            </button>
+            <div class="feedback-text" id="feedback-correct">
+                CORRECT <img src="/expert/static/images/check.svg">
+            </div>
+            <div class="feedback-text" id="feedback-incorrect">
+                INCORRECT <img src="/expert/static/images/x.svg">
+            </div>
+        </div>
+    </div>
+{% endblock %}

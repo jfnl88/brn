@@ -1,0 +1,32 @@
+
+{% extends "task_base_layout.html.jinja" %}
+
+{% block task_content %}
+    <div id="task">
+        <p>
+            In this part of the experiment, you will be learning words
+            in the artificial language by trial and error.
+        </p>
+
+        <p>
+            On each screen, there will be a picture illustrating a new word,
+            with two unlabelled buttons below it.  If you mouse over a button,
+            you will hear a word.  One of the words is the real name for
+            the pictured object; the other is a decoy.  Please listen to both
+            words, and then click a button to choose the one you think is right.
+            The computer will then tell you whether that choice was right or wrong.
+        </p>
+
+        <p>
+            This part of the experiment will end after you've either reached a
+            certain number of consecutive right answers, or run out of words.
+            (You may get the same words multiple times.)  After that, the second
+            phase will begin.
+        </p>
+
+        <p>
+            When you're ready to try these instructions on a practice word,
+            please click <b>Next</b>.
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+#task #prompt {
+  flex: initial;
+  background: white;
+  border: solid black 1px;
+  border-radius: 2rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  #task #prompt {
+    font-size: 1.25rem;
+  }
+}
+#task #play-btn-wrapper {
+  align-self: center;
+  flex: initial;
+  margin-bottom: 1rem;
+}
+
+#feedback-btn-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#feedback-btn-wrapper button {
+  font-size: 1.5rem;
+}
+#feedback-btn-wrapper .feedback-text {
+  display: none;
+  line-height: normal;
+  padding: 1px 4px;
+  font-size: 1.5rem;
+  border: solid 2px white;
+  border-radius: 1rem;
+  background: white;
+}
+#feedback-btn-wrapper .feedback-text img {
+  height: 1.5rem;
+}
+#feedback-btn-wrapper #feedback-correct {
+  display: none;
+  color: #00BF00;
+}
+#feedback-btn-wrapper #feedback-incorrect {
+  display: none;
+  color: #BF0000;
+}
+
+#images-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+@media (min-width: 48em) {
+  #images-wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+#images-wrapper .transport-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+#images-wrapper .transport-img img {
+  width: 12rem;
+  border: solid 4px rgba(0, 0, 0, 0);
+}
+#images-wrapper .transport-img img.selected {
+  border: solid 4px yellow;
+}
