@@ -41,9 +41,7 @@ class Brn(Experiment):
         self.task = Welcome(self, 'welcome')
         self.consent_task = self.task.then(Consent, 'consent')
 
-    def assign_profile(self):
-        super().assign_profile()
-
+    def create_tasks(self):
         training_task_name = self.profile.training_task_name()
         testing_task_name = self.profile.testing_task_name()
         testing_tasks = self.profile.testing_tasks()
