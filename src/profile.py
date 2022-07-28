@@ -9,6 +9,7 @@
 
 import random
 
+import expert
 from expert import profile
 from expert.tasks import TaskDesc
 
@@ -24,8 +25,8 @@ mode_tasks = {
 
 class Profile(profile.Profile):
 
-    def __init__(self, expercls, condition):
-        super().__init__(expercls, condition)
+    def __init__(self, condition):
+        super().__init__(condition)
         b_transport = [t for t in cond.transports
                        if t != self.cond.transport][0]
         self.lang_transports = {
@@ -35,7 +36,7 @@ class Profile(profile.Profile):
         all_stims = {}
         for sign in '+-':
             featstr = f'{sign}{self.cond.feat}'
-            with open(self.expercls.dir_path /
+            with open(expert.experclass.dir_path /
                       f'stims{featstr}.txt') as f:
                 # a set is used so we can easily remove used items
                 # with set operations in self.choose_stims()
@@ -44,9 +45,9 @@ class Profile(profile.Profile):
         self.train_stims, self.test_stims = self.choose_stims(all_stims)
 
     @classmethod
-    def load(cls, expercls, cond_str, subjid):
-        inst = super().load(expercls, cond_str, subjid)
-        with open(expercls.profiles_path / cond_str / subjid) as f:
+    def load(cls, cond_str, subjid):
+        inst = super().load(cond_str, subjid)
+        with open(expert.experclass.profiles_path / cond_str / subjid) as f:
             b_transport = [t for t in cond.transports
                            if t != inst.cond.transport][0]
             inst.lang_transports = {
@@ -59,7 +60,7 @@ class Profile(profile.Profile):
         return inst
 
     def save(self):
-        fname = self.expercls.profiles_path / self.cond.name / self.subjid
+        fname = expert.experclass.profiles_path / self.cond.name / self.subjid
         with open(fname, 'w') as f:
             for s in self.train_stims:
                 print(s.format_save(), file=f)

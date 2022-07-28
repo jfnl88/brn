@@ -19,16 +19,16 @@
         </div>
         <div id="play-btn-wrapper">
             <button type="button" id="play-btn" class="play-btn">
-                Play <img src="/expert/static/images/play.svg">
+                Play <img src="{{ exp_img }}/play.svg">
             </button>
         </div>
         <div id="images-wrapper">
             <div class="transport-img">
-                <img id="transport-img1" src="/expert/brn/img/train.jpg">
+                <img id="transport-img1" src="{{ exp_app_img }}/train.jpg">
                 Newtonia
             </div>
             <div class="transport-img">
-                <img id="transport-img2" src="/expert/brn/img/boat.jpg">
+                <img id="transport-img2" src="{{ exp_app_img }}/boat.jpg">
                 Olden Isle
             </div>
         </div>
@@ -37,10 +37,10 @@
                 Check answer
             </button>
             <div class="feedback-text" id="feedback-correct">
-                CORRECT <img src="/expert/static/images/check.svg">
+                CORRECT <img src="{{ exp_img }}/check.svg">
             </div>
             <div class="feedback-text" id="feedback-incorrect">
-                INCORRECT <img src="/expert/static/images/x.svg">
+                INCORRECT <img src="{{ exp_img }}/x.svg">
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 
-import { Task, FSA } from '/expert/js/task.js';
-import { elts, aPlay } from '/expert/js/util.js';
+import { Task, FSA } from '/survey/js/task.js';
+import { elts, aPlay } from '/survey/js/util.js';
 
 
 const dom = elts(
@@ -106,8 +106,9 @@ class BrnTask extends Task {
         this.playerShowProgress = true;
         this.aTransport = this.vars['a_transport'];
         this.bTransport = this.aTransport === 'train' ? 'boat' : 'train';
-        dom['transport-img1'].src = `/expert/brn/img/${this.aTransport}.jpg`;
-        dom['transport-img2'].src = `/expert/brn/img/${this.bTransport}.jpg`;
+        const dir = this.vars['exp_app_img'];
+        dom['transport-img1'].src = `${dir}/${this.aTransport}.jpg`;
+        dom['transport-img2'].src = `${dir}/${this.bTransport}.jpg`;
         this.clearImgSel();
         // show feedback button and hide correct/incorrect text
         // (wrapper for both is hidden by default)

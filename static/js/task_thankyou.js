@@ -1,5 +1,5 @@
 
-import { Task } from '/expert/js/task.js';
+import { Task } from '/survey/js/task.js';
 
 class TYTask extends Task {
     constructor() {

@@ -1,6 +1,6 @@
 
 # Import built-in classes
-from expert.experiment import Experiment
+from expert import Experiment
 from expert.tasks import Task, Welcome, Consent, Soundcheck, Thankyou
 
 # Import local modules

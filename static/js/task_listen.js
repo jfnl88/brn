@@ -1,6 +1,6 @@
 
-import { Task, FSA } from '/expert/js/task.js';
-import { elts, aPlay, aSleep } from '/expert/js/util.js'
+import { Task, FSA } from '/survey/js/task.js';
+import { elts, aPlay, aSleep } from '/survey/js/util.js'
 
 
 const dom = elts('play-btn-wrapper');
