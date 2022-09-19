@@ -27,6 +27,8 @@ class Listen(TrialTask):
         super().__init__(inst, 'listen', variables, timeout_secs)
         self.variables['sound'] = self.find_sound(stim.pron)
         self.variables['transport'] = lang_transports[stim.lang]
+        # the transport for lang A (always shown on the left)
+        self.variables['a_transport'] = lang_transports[Lang.A]
         self.resp_extra['transport'] = lang_transports[stim.lang]
 
 

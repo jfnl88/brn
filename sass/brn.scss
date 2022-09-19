@@ -1,0 +1,82 @@
+
+@use 'globals';
+
+$correct-green: #00BF00;
+$incorrect-red: #BF0000;
+
+.hidden {
+    display: none !important;
+}
+
+#task {
+    #prompt {
+        flex: initial;
+        background: white;
+        border: solid black 1px;
+        border-radius: 2rem;
+        //width: 20rem;
+        padding: 1rem;
+        margin: 1rem 0;
+        font-size: 1rem;
+        text-align: center;
+        @media (min-width: globals.$desktop-break) {
+            font-size: 1.25rem;
+        }
+    }
+    #play-btn-wrapper {
+        align-self: center;
+        flex: initial;
+        margin-bottom: 1rem;
+    }
+}
+
+#feedback-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    button { font-size: 1.5rem; }
+    .feedback-text {
+        // I'm trying to get the height here to match the
+        // feedback button height as closely as possible
+        line-height: normal;
+        padding: 1px 4px;
+        font-size: 1.5rem;
+        //font-weight: bold;
+        // margin-top: 1rem;
+        border: solid 2px white;
+        border-radius: 1rem;
+        background: white;
+        img { height: 1.5rem; }
+    }
+    #feedback-correct {
+        color: $correct-green;
+    }
+    #feedback-incorrect {
+        color: $incorrect-red;
+    }
+}
+
+#images-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    @media (min-width: globals.$desktop-break) {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .transport-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.5rem;
+        img {
+            width: 12rem;
+            border: solid 4px rgba(0, 0, 0, 0);
+            &.selected {
+                border: solid 4px yellow;
+            }
+        }
+    }
+}

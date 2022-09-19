@@ -11,11 +11,11 @@
             means of transport you would
             take to reach that city.
             {% if fback %}
-                Once you are certain about
-                your selection, press <b>Check answer</b> to see if
-                you are right.
+                Check the feedback you get to see if you
+                were right, then press <b>Next</b> to continue.
+            {% else %}
+                When you are done, press <b>Next</b> to continue.
             {% endif %}
-            When you are done, press <b>Next</b> to continue.
         </div>
         <div id="play-btn-wrapper">
             <button type="button" id="play-btn" class="play-btn">
@@ -32,14 +32,11 @@
                 Olden Isle
             </div>
         </div>
-        <div id="feedback-btn-wrapper">
-            <button type="button" id="feedback-btn">
-                Check answer
-            </button>
-            <div class="feedback-text" id="feedback-correct">
+        <div id="feedback-wrapper">
+            <div class="feedback-text hidden" id="feedback-correct">
                 CORRECT <img src="{{ exp_img }}/check.svg">
             </div>
-            <div class="feedback-text" id="feedback-incorrect">
+            <div class="feedback-text hidden" id="feedback-incorrect">
                 INCORRECT <img src="{{ exp_img }}/x.svg">
             </div>
         </div>

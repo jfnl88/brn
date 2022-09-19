@@ -1,3 +1,7 @@
+.hidden {
+  display: none !important;
+}
+
 #task #prompt {
   flex: initial;
   background: white;
@@ -19,17 +23,16 @@
   margin-bottom: 1rem;
 }
 
-#feedback-btn-wrapper {
-  display: none;
+#feedback-wrapper {
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-#feedback-btn-wrapper button {
+#feedback-wrapper button {
   font-size: 1.5rem;
 }
-#feedback-btn-wrapper .feedback-text {
-  display: none;
+#feedback-wrapper .feedback-text {
   line-height: normal;
   padding: 1px 4px;
   font-size: 1.5rem;
@@ -37,15 +40,13 @@
   border-radius: 1rem;
   background: white;
 }
-#feedback-btn-wrapper .feedback-text img {
+#feedback-wrapper .feedback-text img {
   height: 1.5rem;
 }
-#feedback-btn-wrapper #feedback-correct {
-  display: none;
+#feedback-wrapper #feedback-correct {
   color: #00BF00;
 }
-#feedback-btn-wrapper #feedback-incorrect {
-  display: none;
+#feedback-wrapper #feedback-incorrect {
   color: #BF0000;
 }
 
@@ -74,3 +75,5 @@
 #images-wrapper .transport-img img.selected {
   border: solid 4px yellow;
 }
+
+/*# sourceMappingURL=main.css.map */

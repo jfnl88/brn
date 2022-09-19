@@ -6,7 +6,7 @@ import { elts, aPlay } from '/survey/js/util.js';
 const dom = elts(
     'play-btn', 'play-btn-wrapper',
     'images-wrapper', 'transport-img1', 'transport-img2',
-    'feedback-btn', 'feedback-btn-wrapper',
+    'feedback-wrapper',
     'feedback-incorrect', 'feedback-correct');
 
 
@@ -17,7 +17,7 @@ class States {
         this.transits = {
             q0: {sound_ended: 'q1'},
             q1: {img_clicked: 'q2'},
-            q2: {feedback_clicked: 'q3'}
+            //q2: {feedback_clicked: 'q3'}
         };
     }
 
@@ -34,37 +34,40 @@ class States {
     }
 
     // selection has been made
-    q2() {
+    /*q2() {
         if (this.task.vars['fback']) {
             this.task.guide(dom['feedback-btn']);
             dom['feedback-btn'].disabled = false;
         } else {
             this.task.enableNext();
         }
-    }
+    }*/
 
     // feedback button has been clicked
-    async q3() {
+    async q2() {
         this.task.imgClickEnabled = false;
         dom['play-btn'].disabled = true;
-        dom['feedback-btn'].disabled = true;
-        const feedback = await this.task.api(
-            'get_feedback', this.task.response);
-        dom['feedback-btn'].style.display = 'none';
-        if (feedback) {
-            dom['feedback-correct'].style.display = 'block';
-            await aPlay(this.task.correct);
-        } else {
-            dom['feedback-incorrect'].style.display = 'block';
-            await aPlay(this.task.incorrect);
-        }
-        this.task.playerShowProgress = false;
-        await aPlay(this.task.player);
-        if (feedback) {
-            await aPlay(this.task.transportSounds[this.task.response]);
-        } else {
-            const corrAns = this.task.response === 'train' ? 'boat' : 'train';
-            await aPlay(this.task.transportSounds[corrAns]);
+        //dom['feedback-btn'].disabled = true;
+        if (this.task.vars['fback']) {
+            const feedback = await this.task.api(
+                'get_feedback', this.task.response);
+            //dom['feedback-btn'].style.display = 'none';
+            if (feedback) {
+                dom['feedback-correct'].classList.remove('hidden');
+                await aPlay(this.task.correct);
+            } else {
+                dom['feedback-incorrect'].classList.remove('hidden');
+                await aPlay(this.task.incorrect);
+            }
+            this.task.playerShowProgress = false;
+            await aPlay(this.task.player);
+            if (feedback) {
+                await aPlay(this.task.transportSounds[this.task.response]);
+            } else {
+                const corrAns = this.task.response === 'train' ?
+                      'boat' : 'train';
+                await aPlay(this.task.transportSounds[corrAns]);
+            }
         }
         this.task.enableNext()
     }
@@ -94,8 +97,8 @@ class BrnTask extends Task {
         });
 
         dom['play-btn'].addEventListener('click', () => this.player.play());
-        dom['feedback-btn'].addEventListener(
-            'click', () => this.fsa.event('feedback_clicked'));
+        //dom['feedback-btn'].addEventListener(
+        //    'click', () => this.fsa.event('feedback_clicked'));
 
         this.guide(dom['play-btn-wrapper']);
     }
@@ -110,20 +113,19 @@ class BrnTask extends Task {
         dom['transport-img1'].src = `${dir}/${this.aTransport}.jpg`;
         dom['transport-img2'].src = `${dir}/${this.bTransport}.jpg`;
         this.clearImgSel();
-        // show feedback button and hide correct/incorrect text
-        // (wrapper for both is hidden by default)
-        dom['feedback-btn'].style.display = null;
-        dom['feedback-correct'].style.display = null;
-        dom['feedback-incorrect'].style.display = null;
+        // hide correct/incorrect text
+        //dom['feedback-btn'].style.display = null;
+        dom['feedback-correct'].classList.add('hidden');
+        dom['feedback-incorrect'].classList.add('hidden');
         const states = new States(this);
         this.fsa = new FSA(states);
         this.fsa.enter('q0');
         this.player = this.initPlayer(this.vars['sound']);
         if (this.vars['fback']) {
-            dom['feedback-btn'].disabled = true;
+            //dom['feedback-btn'].disabled = true;
             this.correct = this.loadSound('_correct');
             this.incorrect = this.loadSound('_incorrect');
-            dom['feedback-btn-wrapper'].style.display = 'flex';
+            //dom['feedback-wrapper'].style.display = 'flex';
             this.transportSounds = {
                 train: this.loadSound('_train'),
                 boat: this.loadSound('_boat')
