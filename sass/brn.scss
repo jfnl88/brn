@@ -28,6 +28,11 @@ $incorrect-red: #BF0000;
         flex: initial;
         margin-bottom: 1rem;
     }
+    #country-flag-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 #feedback-wrapper {

@@ -47,7 +47,7 @@ audio_dir = 'audio'
 # Data structure for language probabilities (base rate and feature)
 LangProbs = namedtuple('LangProbs', 'br feat')
 
-control_probs = {Lang.A: LangProbs(0.5, 1), Lang.B: LangProbs(0.5, 0)}
+control_probs = {Lang.A: LangProbs(0.25, 0.69), Lang.B: LangProbs(0.75, 0.23)}
 #control_probs = {Lang.A: LangProbs(0.25, 0.69), Lang.B: LangProbs(0.75, 0.23)}
 actual_probs = {Lang.A: LangProbs(0.35, 0.8), Lang.B: LangProbs(0.65, 0.35)}
 
