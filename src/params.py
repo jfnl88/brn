@@ -6,7 +6,7 @@ from .stim import Lang
 # Number of subject profiles to create
 # (more may be created if necessary to have an equal number
 # for each condition)
-n_profiles = 100
+n_profiles = 200
 
 timeout_secs = 3600
 
@@ -24,7 +24,7 @@ qnaire_quests = [
      'Master’s degree',
      'Professional degree',
      'Doctorate degree'],
-    ['shorttext', 'What is your native language?'],
+    ['shorttext', 'What is your native language? (the language that you learned first before you were 5)'],
     ['shorttext', 'List any other languages you speak'
      ' (to any level of ability);'
      ' answer "none" if no other languages'],
@@ -36,7 +36,15 @@ qnaire_quests = [
 ]
 
 exit_qnaire_quests = [
-    ['text', 'Example question requiring a long answer']
+    ['checkbox', 'How did you approach the first part of the experiment (choose all that apply)?',
+     'just listened to the words ', 'went by intuition or gut feeling', 'looked for a rule or a pattern',
+     'took notes'],
+     ['shorttext', 'Please describe what you did in as much detail as possible. If you looked for a rule, what rules did you try?'],
+     ['checkbox', 'How did you approach the second part of the experiment (choose all that apply)?',
+      'chose words randomly', 'went by intuition or gut feeling', 'used a rule/pattern I identified in part I',
+     'relied on my notes'],
+     ['shorttext' 'Again please describe in detail what you did. If you relied on a rule, what was it?'],
+     ['shorttext' 'What percent of the test questions do you think you got right?']
 ]
 
 # Number of training and testing trials
@@ -47,7 +55,7 @@ audio_dir = 'audio'
 # Data structure for language probabilities (base rate and feature)
 LangProbs = namedtuple('LangProbs', 'br feat')
 
-control_probs = {Lang.A: LangProbs(0.25, 0.69), Lang.B: LangProbs(0.75, 0.23)}
+control_probs = {Lang.A: LangProbs(0.25, 1), Lang.B: LangProbs(0.75, 0)}
 #control_probs = {Lang.A: LangProbs(0.25, 0.69), Lang.B: LangProbs(0.75, 0.23)}
 actual_probs = {Lang.A: LangProbs(0.35, 0.8), Lang.B: LangProbs(0.65, 0.35)}
 
