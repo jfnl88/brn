@@ -25,7 +25,10 @@
 #task #country-flag-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-self: center;
+  width: 20rem;
+  height: 10rem;
+  align-items: stretch;
 }
 
 #feedback-wrapper {
@@ -75,6 +78,7 @@
 }
 #images-wrapper .transport-img img {
   width: 12rem;
+  height: 6rem;
   border: solid 4px rgba(0, 0, 0, 0);
 }
 #images-wrapper .transport-img img.selected {

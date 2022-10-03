@@ -31,7 +31,10 @@ $incorrect-red: #BF0000;
     #country-flag-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-self: center;
+        width: 20rem;
+        height: 10rem;
+        align-items: stretch;
     }
 }
 
@@ -78,6 +81,7 @@ $incorrect-red: #BF0000;
         padding: 0.5rem;
         img {
             width: 12rem;
+            height: 6rem;
             border: solid 4px rgba(0, 0, 0, 0);
             &.selected {
                 border: solid 4px yellow;
