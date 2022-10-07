@@ -43,8 +43,8 @@ exit_qnaire_quests = [
      ['checkbox', 'How did you approach the second part of the experiment (choose all that apply)?',
       'chose words randomly', 'went by intuition or gut feeling', 'used a rule/pattern I identified in part I',
      'relied on my notes'],
-     ['shorttext' 'Again please describe in detail what you did. If you relied on a rule, what was it?'],
-     ['shorttext' 'What percent of the test questions do you think you got right?']
+     ['shorttext', 'Again please describe in detail what you did. If you relied on a rule, what was it?'],
+     ['shorttext', 'What percent of the test questions do you think you got right?']
 ]
 
 # Number of training and testing trials
@@ -59,7 +59,7 @@ control_probs = {Lang.A: LangProbs(0.25, 1), Lang.B: LangProbs(0.75, 0)}
 #control_probs = {Lang.A: LangProbs(0.25, 0.69), Lang.B: LangProbs(0.75, 0.23)}
 actual_probs = {Lang.A: LangProbs(0.35, 0.8), Lang.B: LangProbs(0.65, 0.35)}
 
-probs = control_probs
+probs = actual_probs
 
 # Compute number of stimuli of each lang for each phase
 # (and number of stims that have feat within each lang)

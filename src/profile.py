@@ -88,12 +88,6 @@ class Profile(profile.Profile):
             audio.append(stims)
         return audio
 
-    def training_task_name(self):
-        return mode_tasks[self.cond.mode]['train'].__name__
-
-    def testing_task_name(self):
-        return mode_tasks[self.cond.mode]['test'].__name__
-
     def training_tasks(self):
         return [
             TaskDesc([
