@@ -6,19 +6,19 @@ from functools import cached_property
 
 modes = ['implicit', 'explicit']
 feats = ['disyll', 'onset', 'coda']
-transports = ['train', 'boat']
+flags = ['star', 'crown']
 
 
 @dataclass(frozen=True)
 class Cond:
     mode: str
     feat: str
-    # transport type for language A
-    transport: str
+    # flag for language A
+    flag: str
 
     @cached_property
     def name(self):
-        return f'{self.mode}-{self.feat}-{self.transport}'
+        return f'{self.mode}-{self.feat}-{self.flag}'
 
     def __str__(self):
         return self.name
@@ -27,7 +27,7 @@ class Cond:
 conds = {}
 for mode in modes:
     for feat in feats:
-        for transport in transports:
-            c = Cond(mode, feat, transport)
+        for flag in flags:
+            c = Cond(mode, feat, flag)
             conds[c.name] = c
 del c

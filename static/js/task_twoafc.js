@@ -5,7 +5,7 @@ import { elts, aPlay } from '/survey/js/util.js';
 
 const dom = elts(
     'play-btn', 'play-btn-wrapper', 'play-btn-label',
-    'images-wrapper', 'transport-img1', 'transport-img2',
+    'images-wrapper', 'flag-img1', 'flag-img2',
     'feedback-wrapper',
     'feedback-incorrect', 'feedback-correct');
 
@@ -59,19 +59,19 @@ class BrnTask extends Task {
     constructor() {
         super();
 
-        dom['transport-img1'].addEventListener('click', () => {
+        dom['flag-img1'].addEventListener('click', () => {
             if (this.imgClickEnabled) {
-                this.setResponse(this.aTransport);
-                dom['transport-img2'].classList.remove('selected');
-                dom['transport-img1'].classList.add('selected');
+                this.setResponse(this.aFlag);
+                dom['flag-img2'].classList.remove('selected');
+                dom['flag-img1'].classList.add('selected');
                 this.fsa.event('img_clicked');
             }
         });
-        dom['transport-img2'].addEventListener('click', () => {
+        dom['flag-img2'].addEventListener('click', () => {
             if (this.imgClickEnabled) {
-                this.setResponse(this.bTransport);
-                dom['transport-img1'].classList.remove('selected');
-                dom['transport-img2'].classList.add('selected');
+                this.setResponse(this.bFlag);
+                dom['flag-img1'].classList.remove('selected');
+                dom['flag-img2'].classList.add('selected');
                 this.fsa.event('img_clicked');
             }
         });
@@ -85,11 +85,11 @@ class BrnTask extends Task {
         await super.reset();
         this.imgClickEnabled = false;
         this.playerShowProgress = true;
-        this.aTransport = this.vars['a_transport'];
-        this.bTransport = this.aTransport === 'train' ? 'boat' : 'train';
+        this.aFlag = this.vars['a_flag'];
+        this.bFlag = this.aFlag === 'star' ? 'crown' : 'star';
         const dir = this.vars['exp_app_img'];
-        dom['transport-img1'].src = `${dir}/${this.aTransport}.jpg`;
-        dom['transport-img2'].src = `${dir}/${this.bTransport}.jpg`;
+        dom['flag-img1'].src = `${dir}/${this.aFlag}.jpg`;
+        dom['flag-img2'].src = `${dir}/${this.bFlag}.jpg`;
         this.clearImgSel();
         // hide correct/incorrect text
         dom['feedback-correct'].classList.add('hidden');
@@ -107,8 +107,8 @@ class BrnTask extends Task {
     }
 
     clearImgSel() {
-        dom['transport-img1'].classList.remove('selected');
-        dom['transport-img2'].classList.remove('selected');
+        dom['flag-img1'].classList.remove('selected');
+        dom['flag-img2'].classList.remove('selected');
     }
 
     initPlayer(sound, onended) {

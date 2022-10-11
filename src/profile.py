@@ -27,11 +27,12 @@ class Profile(profile.Profile):
 
     def __init__(self, condition):
         super().__init__(condition)
-        b_transport = [t for t in cond.transports
-                       if t != self.cond.transport][0]
-        self.lang_transports = {
-            stim.Lang.A: self.cond.transport,
-            stim.Lang.B: b_transport}
+        b_flag = [t for t in cond.flags
+                       if t != self.cond.flag][0]
+        self.lang_flags = {
+            stim.Lang.A: self.cond.flag,
+            stim.Lang.B: b_flag
+        }
 
         all_stims = {}
         for sign in '+-':
@@ -48,11 +49,12 @@ class Profile(profile.Profile):
     def load(cls, cond_str, subjid):
         inst = super().load(cond_str, subjid)
         with open(expert.experclass.profiles_path / cond_str / subjid) as f:
-            b_transport = [t for t in cond.transports
-                           if t != inst.cond.transport][0]
-            inst.lang_transports = {
-                stim.Lang.A: inst.cond.transport,
-                stim.Lang.B: b_transport}
+            b_flag = [t for t in cond.flags
+                           if t != inst.cond.flag][0]
+            inst.lang_flags = {
+                stim.Lang.A: inst.cond.flag,
+                stim.Lang.B: b_flag
+            }
             inst.train_stims = [stim.Stim.parse(f.readline().rstrip())
                                 for i in range(params.n_trials['train'])]
             inst.test_stims = [stim.Stim.parse(f.readline().rstrip())
@@ -93,7 +95,7 @@ class Profile(profile.Profile):
             TaskDesc([
                 mode_tasks[self.cond.mode]['train'],
                 stim,
-                self.lang_transports,
+                self.lang_flags,
                 {'fback': True}])
             for stim in self.train_stims]
 
@@ -102,5 +104,5 @@ class Profile(profile.Profile):
             TaskDesc([
                 mode_tasks[self.cond.mode]['test'],
                 stim,
-                self.lang_transports])
+                self.lang_flags])
             for stim in self.test_stims]

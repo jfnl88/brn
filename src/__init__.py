@@ -67,9 +67,9 @@ class Brn(Experiment):
          .then('qnaire', {'questions': params.qnaire_quests})
 
          .then(instruct_train)
-         .then_all(self.profile.training_tasks())
+         .then_all(self.profile.training_tasks()[:3])
          .then('instruct_test')
-         .then_all(testing_tasks)
+         .then_all(testing_tasks[:3])
 
          .then('exit_qnaire', {'questions': params.exit_qnaire_quests},
          # Disable main section timeout by setting 'timeout_secs'

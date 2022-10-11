@@ -22,29 +22,29 @@ class TrialTask(Task):
 
 class Listen(TrialTask):
 
-    def __init__(self, inst, stim, lang_transports,
+    def __init__(self, inst, stim, lang_flags,
                  variables=None, timeout_secs=None):
         super().__init__(inst, 'listen', variables, timeout_secs)
         self.variables['sound'] = self.find_sound(stim.pron)
-        self.variables['transport'] = lang_transports[stim.lang]
-        self.resp_extra['transport'] = lang_transports[stim.lang]
+        self.variables['flag'] = lang_flags[stim.lang]
+        self.resp_extra['stim'] = lang_flags[stim.lang]
 
 
 class TwoAFC(TrialTask):
 
-    def __init__(self, inst, stim, lang_transports,
+    def __init__(self, inst, stim, lang_flags,
                  variables=None, timeout_secs=None):
         super().__init__(inst, 'twoafc', variables, timeout_secs)
         langs = list(Lang)
         # the correct answer
-        self.correct_ans = lang_transports[stim.lang]
+        self.correct_ans = lang_flags[stim.lang]
         # the transport for lang A (always shown on the left)
-        self.variables['a_transport'] = lang_transports[Lang.A]
+        self.variables['a_flag'] = lang_flags[Lang.A]
         self.variables['sound'] = self.find_sound(stim.pron)
         if not self.variables.get('fback'):
             self.variables['fback'] = False
         # save correct answer in the participant response extra field
-        self.resp_extra['transport'] = lang_transports[stim.lang]
+        self.resp_extra['stim'] = lang_flags[stim.lang]
 
     def get_feedback(self, response):
         return response == self.correct_ans

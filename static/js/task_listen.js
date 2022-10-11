@@ -15,11 +15,11 @@ class ListenTask extends Task {
 
     async reset() {
         await super.reset();
-        const transport = this.vars['transport'];
+        const flag = this.vars['flag'];
         dom['country-flag-wrapper'].replaceChildren();
         const img = document.createElement('img');
         const dir = this.vars['exp_app_img'];
-        img.src = `${dir}/${transport}.jpg`;
+        img.src = `${dir}/${flag}.jpg`;
         dom['country-flag-wrapper'].append(img);
 
         this.disableNext()
@@ -56,7 +56,6 @@ class ListenTask extends Task {
         player.autoplay = true;
         return player;
     }
-
 
 }
 
