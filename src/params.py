@@ -59,7 +59,7 @@ control_probs = {Lang.A: LangProbs(0.25, 1), Lang.B: LangProbs(0.75, 0)}
 #control_probs = {Lang.A: LangProbs(0.25, 0.69), Lang.B: LangProbs(0.75, 0.23)}
 actual_probs = {Lang.A: LangProbs(0.35, 0.8), Lang.B: LangProbs(0.65, 0.35)}
 
-probs = actual_probs
+probs = control_probs
 
 # Compute number of stimuli of each lang for each phase
 # (and number of stims that have feat within each lang)
