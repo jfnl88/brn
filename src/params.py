@@ -39,12 +39,12 @@ exit_qnaire_quests = [
     ['checkbox', 'How did you approach the first part of the experiment (choose all that apply)?',
      'just listened to the words ', 'went by intuition or gut feeling', 'looked for a rule or a pattern',
      'took notes'],
-     ['shorttext', 'Please describe what you did in as much detail as possible. If you looked for a rule, what rules did you try?'],
+     ['text', 'Please describe what you did in as much detail as possible. If you looked for a rule, what rules did you try?'],
      ['checkbox', 'How did you approach the second part of the experiment (choose all that apply)?',
       'chose words randomly', 'went by intuition or gut feeling', 'used a rule/pattern I identified in part I',
      'relied on my notes'],
-     ['shorttext', 'Again please describe in detail what you did. If you relied on a rule, what was it?'],
-     ['shorttext', 'What percent of the test questions do you think you got right?']
+     ['text', 'Again please describe in detail what you did. If you relied on a rule, what was it?'],
+     ['shorttext', 'What percent of the test questions do you think you got right?', r'^\d+\s*%?$']
 ]
 
 # Number of training and testing trials

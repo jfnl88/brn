@@ -127,6 +127,7 @@ class BrnTask extends Task {
         });
         player.addEventListener('play', () => {
             dom['play-btn'].disabled = true;
+            dom['play-btn-label'].textContent = 'Playing';
         });
         player.addEventListener('ended', () => {
             dom['play-btn'].style.background = null; // '#e1e1e1'

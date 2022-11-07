@@ -60,7 +60,7 @@ class Brn(Experiment):
         testing_tasks[0].kwargs['timeout_secs'] = params.timeout_secs
 
         (self.consent_task
-         #.then(Soundcheck)
+         .then(Soundcheck)
 
          # 'qnaire' template receives 'questions' variable containing
          # questionnaire questions
