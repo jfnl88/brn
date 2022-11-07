@@ -32,9 +32,12 @@ $incorrect-red: #BF0000;
         display: flex;
         flex-direction: column;
         align-self: center;
-        width: 20rem;
-        height: 10rem;
         align-items: stretch;
+        img {
+            width: 16rem;
+            height: 8rem;
+            border: solid 4px rgba(0, 0, 0, 0);
+        }
     }
 }
 
