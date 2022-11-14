@@ -28,6 +28,7 @@ class Listen(TrialTask):
         self.variables['sound'] = self.find_sound(stim.pron)
         self.variables['flag'] = lang_flags[stim.lang]
         self.resp_extra['stim'] = lang_flags[stim.lang]
+        self.resp_extra['sound'] = stim.pron
 
 
 class TwoAFC(TrialTask):
@@ -45,6 +46,7 @@ class TwoAFC(TrialTask):
             self.variables['fback'] = False
         # save correct answer in the participant response extra field
         self.resp_extra['stim'] = lang_flags[stim.lang]
+        self.resp_extra['sound'] = stim.pron
 
     def get_feedback(self, response):
         return response == self.correct_ans
