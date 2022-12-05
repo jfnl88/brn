@@ -96,6 +96,7 @@ class Profile(profile.Profile):
                 mode_tasks[self.cond.mode]['train'],
                 stim,
                 self.lang_flags,
+                'training',
                 {'fback': True}])
             for stim in self.train_stims]
 
@@ -104,5 +105,6 @@ class Profile(profile.Profile):
             TaskDesc([
                 mode_tasks[self.cond.mode]['test'],
                 stim,
-                self.lang_flags])
+                self.lang_flags,
+                'testing'])
             for stim in self.test_stims]

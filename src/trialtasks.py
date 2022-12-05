@@ -22,7 +22,7 @@ class TrialTask(Task):
 
 class Listen(TrialTask):
 
-    def __init__(self, inst, stim, lang_flags,
+    def __init__(self, inst, stim, lang_flags, phase,
                  variables=None, timeout_secs=None):
         super().__init__(inst, 'listen', variables, timeout_secs)
         self.variables['sound'] = self.find_sound(stim.pron)
@@ -33,7 +33,7 @@ class Listen(TrialTask):
 
 class TwoAFC(TrialTask):
 
-    def __init__(self, inst, stim, lang_flags,
+    def __init__(self, inst, stim, lang_flags, phase,
                  variables=None, timeout_secs=None):
         super().__init__(inst, 'twoafc', variables, timeout_secs)
         langs = list(Lang)
@@ -47,6 +47,7 @@ class TwoAFC(TrialTask):
         # save correct answer in the participant response extra field
         self.resp_extra['stim'] = lang_flags[stim.lang]
         self.resp_extra['sound'] = stim.pron
+        self.resp_extra['phase'] = phase
 
     def get_feedback(self, response):
         return response == self.correct_ans

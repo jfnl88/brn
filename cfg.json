@@ -1,7 +1,8 @@
 {
-  "inact_timeout_secs": 5400,
+  "inact_timeout_secs": 1400,
   "progbar_enabled": true,
   "save_ip_hash": false,
   "save_user_agent": false,
-  "id": "S3G8ltmJw-8"
+  "id": "S3G8ltmJw-8",
+  "prolific_completion_url": "https://app.prolific.co/submissions/complete?cc=CVSN63MV"
 }

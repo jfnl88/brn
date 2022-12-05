@@ -6,9 +6,9 @@ from .stim import Lang
 # Number of subject profiles to create
 # (more may be created if necessary to have an equal number
 # for each condition)
-n_profiles = 200
+n_profiles = 180
 
-timeout_secs = 3600
+timeout_secs = 600
 
 qnaire_quests = [
     ['radio', 'What is your age range?',
@@ -48,7 +48,7 @@ exit_qnaire_quests = [
 ]
 
 # Number of training and testing trials
-n_trials = {'train': 20, 'test': 10}
+n_trials = {'train': 40, 'test': 24}
 
 audio_dir = 'audio'
 
