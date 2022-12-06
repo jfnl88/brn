@@ -27,8 +27,8 @@ class Profile(profile.Profile):
 
     def __init__(self, condition):
         super().__init__(condition)
-        b_flag = [t for t in cond.flags
-                       if t != self.cond.flag][0]
+        b_flag = [f for f in cond.flags
+                       if f != self.cond.flag][0]
         self.lang_flags = {
             stim.Lang.A: self.cond.flag,
             stim.Lang.B: b_flag
@@ -74,10 +74,13 @@ class Profile(profile.Profile):
         audio = []
         for phase in 'train', 'test':
             stims = []
+            cond_sign = '+' if self.cond.sign == 'pos' else '-'
+            other_sign = '-' if cond_sign == '+' else '+'
             for lang in stim.Lang:
-                n_feat = params.stim_counts[phase][lang]['feat']
-                n_nofeat = params.stim_counts[phase][lang]['all'] - n_feat
-                counts = {'+': n_feat, '-': n_nofeat}
+                counts = {}
+                counts[cond_sign] = params.stim_counts[phase][lang]['feat']
+                counts[other_sign] = \
+                    params.stim_counts[phase][lang]['all'] - counts[cond_sign]
                 # choose +feat and -feat stims
                 for sign in '+-':
                     # sample available stims

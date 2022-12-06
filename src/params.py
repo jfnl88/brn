@@ -61,8 +61,8 @@ actual_probs = {Lang.A: LangProbs(0.35, 0.8), Lang.B: LangProbs(0.65, 0.35)}
 
 probs = control_probs
 
-# Compute number of stimuli of each lang for each phase
-# (and number of stims that have feat within each lang)
+# For each phase, compute number of stimuli of each lang
+# (and number of stims that are [<condition-sign>feat] within each lang)
 # NB: use of ints alters probabilities slightly
 stim_counts = {}
 for phase in 'train', 'test':
